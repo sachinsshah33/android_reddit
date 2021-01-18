@@ -18,6 +18,4 @@ data class ApiResponseDataChildren(
     @SerializedName("data")
     @Expose
     var data: ApiResponseDataChildrenData? = null
-) : Parcelable {
-
-}
+) : Parcelable

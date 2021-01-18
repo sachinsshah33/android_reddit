@@ -30,6 +30,4 @@ data class ApiResponseData(
     @SerializedName("before")
     @Expose
     var before: String? = ""
-) : Parcelable {
-
-}
+) : Parcelable

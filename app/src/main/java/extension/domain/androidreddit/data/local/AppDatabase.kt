@@ -6,9 +6,8 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import extension.domain.androidreddit.data.models.ApiResponseDataChildren
 import extension.domain.androidreddit.data.models.ApiResponseDataChildrenData
-import extension.domain.androidreddit.data.repo.dataDAO
+import extension.domain.androidreddit.data.redditData.DataDAO
 
 @Database(
     entities = [ApiResponseDataChildrenData::class],
@@ -17,7 +16,7 @@ import extension.domain.androidreddit.data.repo.dataDAO
 )
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun dataDAO(): dataDAO
+    abstract fun dataDAO(): DataDAO
 
     companion object {
         @Volatile var instance: AppDatabase? = null

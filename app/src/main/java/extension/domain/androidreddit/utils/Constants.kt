@@ -1,4 +1,4 @@
-package extension.domain.androidreddit
+package extension.domain.androidreddit.utils
 
 
 

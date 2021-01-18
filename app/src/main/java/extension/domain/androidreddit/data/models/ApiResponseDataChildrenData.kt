@@ -13,9 +13,9 @@ import kotlin.collections.ArrayList
 @Parcelize
 @Entity(tableName = "apiResponseDataChildrenData")
 data class ApiResponseDataChildrenData(
-    @SerializedName("approved_at_utc")
+    @SerializedName("created_utc")
     @Expose
-    var approved_at_utc: String? = "",
+    var created_utc: Long? = 0,
 
     @SerializedName("subreddit")
     @Expose
@@ -24,6 +24,10 @@ data class ApiResponseDataChildrenData(
     @SerializedName("selftext")
     @Expose
     var selftext: String? = "",
+
+    @SerializedName("title")
+    @Expose
+    var title: String? = "",
 
     @PrimaryKey
     @SerializedName("created")
@@ -37,6 +41,4 @@ data class ApiResponseDataChildrenData(
     @SerializedName("url")
     @Expose
     var url: String? = ""
-) : Parcelable {
-
-}
+) : Parcelable

@@ -1,16 +1,20 @@
-package extension.domain.androidreddit
+package extension.domain.androidreddit.activities.main
 
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.paging.ExperimentalPagingApi
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import extension.domain.androidreddit.data.models.ApiResponseDataChildren
+import extension.domain.androidreddit.App
+import extension.domain.androidreddit.R
 import extension.domain.androidreddit.data.models.ApiResponseDataChildrenData
+import extension.domain.androidreddit.extensions.bold
 import kotlinx.android.synthetic.main.data_item.view.*
 
+@ExperimentalPagingApi
 class PaginatedAdapter(val onItemSelected: ((ApiResponseDataChildrenData?) -> Unit)? = null) : PagingDataAdapter<ApiResponseDataChildrenData, PaginatedAdapter.ViewHolder>(
     COMPARATOR
 ) {
@@ -33,8 +37,10 @@ class PaginatedAdapter(val onItemSelected: ((ApiResponseDataChildrenData?) -> Un
         fun onBindView(data: ApiResponseDataChildrenData, position: Int) {
             itemView.apply {
                 data.let {
-                    title_name.text = it.selftext
-                    title_name.setOnClickListener { _->
+                    title_name.text = it.title
+
+                    author_name.text = String.format(App.AppContext.getString(R.string.by_author), it.author_fullname).bold(String.format(App.AppContext.getString(R.string.by_author), "").length)
+                    data_main_layout.setOnClickListener { _->
                         onItemSelected?.invoke(it)
                     }
                 }

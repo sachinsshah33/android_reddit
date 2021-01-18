@@ -17,6 +17,4 @@ data class ApiResponse(
     @SerializedName("data")
     @Expose
     var data: ApiResponseData? = null
-) : Parcelable {
-
-}
+) : Parcelable

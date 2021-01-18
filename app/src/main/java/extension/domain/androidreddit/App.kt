@@ -6,6 +6,7 @@ import android.app.Application
 import android.content.Context
 import android.os.Bundle
 import androidx.paging.ExperimentalPagingApi
+import extension.domain.androidreddit.activities.main.MainActivity
 import java.lang.ref.WeakReference
 
 @ExperimentalPagingApi
